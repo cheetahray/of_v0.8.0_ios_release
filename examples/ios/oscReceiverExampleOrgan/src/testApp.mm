@@ -49,14 +49,12 @@ void testApp::update(){
         else if( found!=std::string::npos ) {
             string msg_string;
 			int rayi = m.getArgAsInt32( 0 );
+            int rayx = m.getArgAsInt32( 1 );
             if(rayi > 0)
             {
                 msg_string = m.getAddress().substr(2);
-                msg_strings[current_msg_string] = msg_string;
-                timers[current_msg_string] = ofGetElapsedTimef() + 60.0f;
-                current_msg_string = ( current_msg_string + 1 ) % NUM_MSG_STRINGS;
-                // clear the next line
-                msg_strings[current_msg_string] = "";
+                msg_strings[rayx] = msg_string;
+                timers[rayx] = ofGetElapsedTimef() + 60.0f;
             }
         }
         else {
@@ -100,12 +98,53 @@ void testApp::draw(){
 	ofDrawBitmapString( buf, 430, 20 );
 	ofDrawBitmapString( mouseButtonState, 580, 20 );
     */
-    int rayi = 0;
-    for( int i=0; i<NUM_MSG_STRINGS; i++ ){
+    
+    for( int i=0; i<NUM_MSG_STRINGS; i++ )
+    {
         if(msg_strings[i].length())
         {
-            ofDrawBitmapString( msg_strings[i], 20 + 51 * rayi, 20 + ofToInt(msg_strings[i]) * 12 );
-            rayi++;
+            int changenode = ofToInt(msg_strings[i]);
+            int strx = 20 + 51 * i;
+            int stry = 748 - changenode * 12;
+            switch(changenode%12)
+            {
+                case 0:
+                    ofDrawBitmapString( "Ti", strx, stry );
+                    break;
+                case 1:
+                    ofDrawBitmapString( "Do", strx, stry );
+                    break;
+                case 2:
+                    ofDrawBitmapString( "Do", strx, stry );
+                    break;
+                case 3:
+                    ofDrawBitmapString( "Re", strx, stry );
+                    break;
+                case 4:
+                    ofDrawBitmapString( "Re+", strx, stry );
+                    break;
+                case 5:
+                    ofDrawBitmapString( "Mi", strx, stry );
+                    break;
+                case 6:
+                    ofDrawBitmapString( "Fa", strx, stry );
+                    break;
+                case 7:
+                    ofDrawBitmapString( "Fa+", strx, stry );
+                    break;
+                case 8:
+                    ofDrawBitmapString( "So", strx, stry );
+                    break;
+                case 9:
+                    ofDrawBitmapString( "So+", strx, stry );
+                    break;
+                case 10:
+                    ofDrawBitmapString( "La", strx, stry );
+                    break;
+                case 11:
+                    ofDrawBitmapString( "La+", strx, stry );
+                    break;
+            }
         }
         //ofDrawBitmapString( msg_strings[i], 10, 20 + 15 * i );
 	}
@@ -113,7 +152,7 @@ void testApp::draw(){
 
 //--------------------------------------------------------------
 void testApp::exit(){
-
+    
 }
 
 //--------------------------------------------------------------
