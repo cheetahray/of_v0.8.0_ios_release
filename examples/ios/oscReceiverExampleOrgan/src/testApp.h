@@ -37,5 +37,7 @@ class testApp : public ofxiOSApp {
         int mouseX;
         int mouseY;
 		string mouseButtonState;
+    
+        ofTrueTypeFont franklinBook;
 };
 

@@ -14,6 +14,10 @@ void testApp::setup(){
 	mouseButtonState = "";
 	ofSetColor(0, 0, 0);
 	ofBackground( 200, 200, 200 );
+    
+    franklinBook.loadFont("frabk.ttf", 14);
+	franklinBook.setLineHeight(18.0f);
+	franklinBook.setLetterSpacing(1.037);
 }
 
 //--------------------------------------------------------------
@@ -109,40 +113,40 @@ void testApp::draw(){
             switch(changenode%12)
             {
                 case 0:
-                    ofDrawBitmapString( "Ti", strx, stry );
+                    franklinBook.drawString( "Ti", strx, stry );
                     break;
                 case 1:
-                    ofDrawBitmapString( "Do", strx, stry );
+                    franklinBook.drawString( "Do", strx, stry );
                     break;
                 case 2:
-                    ofDrawBitmapString( "Do", strx, stry );
+                    franklinBook.drawString( "Do", strx, stry );
                     break;
                 case 3:
-                    ofDrawBitmapString( "Re", strx, stry );
+                    franklinBook.drawString( "Re", strx, stry );
                     break;
                 case 4:
-                    ofDrawBitmapString( "Re+", strx, stry );
+                    franklinBook.drawString( "Re+", strx, stry );
                     break;
                 case 5:
-                    ofDrawBitmapString( "Mi", strx, stry );
+                    franklinBook.drawString( "Mi", strx, stry );
                     break;
                 case 6:
-                    ofDrawBitmapString( "Fa", strx, stry );
+                    franklinBook.drawString( "Fa", strx, stry );
                     break;
                 case 7:
-                    ofDrawBitmapString( "Fa+", strx, stry );
+                    franklinBook.drawString( "Fa+", strx, stry );
                     break;
                 case 8:
-                    ofDrawBitmapString( "So", strx, stry );
+                    franklinBook.drawString( "So", strx, stry );
                     break;
                 case 9:
-                    ofDrawBitmapString( "So+", strx, stry );
+                    franklinBook.drawString( "So+", strx, stry );
                     break;
                 case 10:
-                    ofDrawBitmapString( "La", strx, stry );
+                    franklinBook.drawString( "La", strx, stry );
                     break;
                 case 11:
-                    ofDrawBitmapString( "La+", strx, stry );
+                    franklinBook.drawString( "La+", strx, stry );
                     break;
             }
         }
